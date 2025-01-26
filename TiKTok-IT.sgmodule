@@ -1,0 +1,15 @@
+#!name=TikTok IT
+#!desc=解锁 TikTok 意大利 地区
+#!openUrl=https://github.com/turing2015/sgmodule
+#!author=turing2015
+#!homepage=https://github.com/turing2015/sgmodule
+
+[URL Rewrite]
+
+(?<=_region=)CN(?=&) IT 307
+(?<=&mcc_mnc=)4 2 307
+^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
+(^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
+
+[MITM]
+hostname = %APPEND% *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com
